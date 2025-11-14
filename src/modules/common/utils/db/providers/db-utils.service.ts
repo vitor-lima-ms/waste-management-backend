@@ -1,3 +1,5 @@
+/* Enum imports */
+import { SqlDataTypesEnum } from "../enums/sql-data-types.enum";
 /* Nest.js imports */
 import { Injectable } from "@nestjs/common";
 /* DbUtilsService */
@@ -10,6 +12,9 @@ export class DbUtilsService {
    */
   generateColumnAliasForSelectQuery(columnAlias: string): string {
     return `"${columnAlias}"`;
+  }
+  generatePostgreSqlDoubleColonOperator(sqlDataType: SqlDataTypesEnum): string {
+    return `::${sqlDataType}`;
   }
   /**
    *

@@ -79,10 +79,11 @@ export class DisposalPointsService {
     );
   }
   async findAll(): Promise<FindAllDisposalPointsResponse[]> {
-    return await this.disposalPointsRepository
+    const allDisposalPoints = await this.disposalPointsRepository
       .createQueryBuilder(EntitiesAliasesEnum.DISPOSAL_POINT)
       .select(this.disposalPointsHelper.generateFindAllOrOneSelectColumns())
       .getRawMany<FindAllDisposalPointsResponse>();
+    return allDisposalPoints;
   }
   async findOneById(
     id: string,

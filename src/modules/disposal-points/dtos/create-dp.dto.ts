@@ -4,7 +4,7 @@ import { DisposalPointEntityPropertiesPtBrNamesEnum } from "../enums/dp-entity-p
 import { LocalitiesTypesEnum } from "../enums/localities-types.enum";
 import { WastesCategoriesEnum } from "src/modules/wastes/enums/wastes-categories.enum";
 /* Other libraries imports */
-import { IsDecimal, IsEnum, IsNotEmpty } from "class-validator";
+import { IsEnum, IsNotEmpty, IsNumber } from "class-validator";
 /* Util imports */
 import { MessagesUtilsClass } from "src/common/utils/messages/messages-utils.class";
 /* CreateDisposalPointDto */
@@ -17,16 +17,16 @@ export class CreateDisposalPointDto {
     ),
   })
   dpAcceptedWasteCategory: WastesCategoriesEnum;
-  @IsDecimal(
-    { locale: "en-US" },
+  @IsNumber(
+    { allowInfinity: false, allowNaN: false },
     {
       message: MessagesUtilsClass.generateClassValidatorErrorMessage(
         DisposalPointEntityPropertiesPtBrNamesEnum.LATITUDE,
-        ClassValidatorDecoratorsNamesEnum.IS_DECIMAL,
+        ClassValidatorDecoratorsNamesEnum.IS_NUMBER,
       ),
     },
   )
-  dpLatitude: string;
+  dpLatitude: number;
   @IsNotEmpty({
     message: MessagesUtilsClass.generateClassValidatorErrorMessage(
       DisposalPointEntityPropertiesPtBrNamesEnum.LOCALITY_NAME,
@@ -42,16 +42,16 @@ export class CreateDisposalPointDto {
     ),
   })
   dpLocalityType: LocalitiesTypesEnum;
-  @IsDecimal(
-    { locale: "en-US" },
+  @IsNumber(
+    { allowInfinity: false, allowNaN: false },
     {
       message: MessagesUtilsClass.generateClassValidatorErrorMessage(
         DisposalPointEntityPropertiesPtBrNamesEnum.LATITUDE,
-        ClassValidatorDecoratorsNamesEnum.IS_DECIMAL,
+        ClassValidatorDecoratorsNamesEnum.IS_NUMBER,
       ),
     },
   )
-  dpLongitude: string;
+  dpLongitude: number;
   @IsNotEmpty({
     message: MessagesUtilsClass.generateClassValidatorErrorMessage(
       DisposalPointEntityPropertiesPtBrNamesEnum.NEIGHBORHOOD,

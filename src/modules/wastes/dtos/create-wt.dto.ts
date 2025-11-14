@@ -32,13 +32,14 @@ export class CreateWasteDto {
     message: MessagesUtilsClass.generateClassValidatorErrorMessage(
       WasteEntityPropertiesPtBrNamesEnum.TYPE,
       ClassValidatorDecoratorsNamesEnum.IS_ENUM,
+      { enumValues: WastesTypesEnum },
     ),
   })
   wtType: WastesTypesEnum;
   @IsNotEmpty({
     message: MessagesUtilsClass.generateClassValidatorErrorMessage(
       WasteEntityPropertiesPtBrNamesEnum.USER_NAME,
-      ClassValidatorDecoratorsNamesEnum.IS_ENUM,
+      ClassValidatorDecoratorsNamesEnum.IS_NOT_EMPTY,
     ),
   })
   wtUserName: string;

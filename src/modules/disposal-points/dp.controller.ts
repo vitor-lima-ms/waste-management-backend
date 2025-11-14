@@ -18,6 +18,7 @@ export class DisposalPointsController {
   create(
     @Body(CustomValidationPipe) createDisposalPointDto: CreateDisposalPointDto,
   ): Promise<string | undefined> {
+    console.log(createDisposalPointDto);
     return this.disposalPointsService.create(createDisposalPointDto);
   }
   @Get()

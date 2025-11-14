@@ -7,8 +7,6 @@ import { CreateUpdateAndDeleteEnum } from "src/modules/common/utils/messages/enu
 import { EntitiesAliasesEnum } from "src/common/enums/entities-aliases.enum";
 import { EntitiesPtBrNamesEnum } from "src/common/enums/entities-ptbr-names.enum";
 import { HttpExceptionMessageContextsEnum } from "src/modules/common/utils/messages/enums/http-exception-message-contexts.enum";
-import { WasteEntityPropertiesDbNamesEnum } from "../enums/wt-entity-properties-db-names.enum";
-import { WasteEntityPropertiesPtBrNamesEnum } from "../enums/wt-entity-properties-ptbr-names.enum";
 /* Helper imports */
 import { WastesHelper } from "./wt.helper";
 /* Nest.js imports */

@@ -24,8 +24,9 @@ import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
 )
 export class DisposalPointEntity extends AbstractEntity {
   @Column({
-    name: DisposalPointEntityPropertiesDbNamesEnum.ACCEPTED_WASTE_CATEGORY,
     enum: WastesCategoriesEnum,
+    name: DisposalPointEntityPropertiesDbNamesEnum.ACCEPTED_WASTE_CATEGORY,
+    type: "enum",
   })
   dpAcceptedWasteCategory: WastesCategoriesEnum;
   @PrimaryGeneratedColumn("uuid", {
@@ -38,29 +39,22 @@ export class DisposalPointEntity extends AbstractEntity {
   dpId: string;
   @Column({
     name: DisposalPointEntityPropertiesDbNamesEnum.LATITUDE,
-    scale: 6,
     type: "decimal",
   })
-  /**
-   * Considerei como tipo string na classe pois esse valor é retornado como string nas consultas
-   */
-  dpLatitude: string;
+  dpLatitude: number;
   @Column({ name: DisposalPointEntityPropertiesDbNamesEnum.LOCALITY_NAME })
   dpLocalityName: string;
   @Column({
-    name: DisposalPointEntityPropertiesDbNamesEnum.LOCALITY_TYPE,
     enum: LocalitiesTypesEnum,
+    name: DisposalPointEntityPropertiesDbNamesEnum.LOCALITY_TYPE,
+    type: "enum",
   })
   dpLocalityType: LocalitiesTypesEnum;
   @Column({
     name: DisposalPointEntityPropertiesDbNamesEnum.LONGITUDE,
-    scale: 6,
     type: "decimal",
   })
-  /**
-   * Considerei como tipo string na classe pois esse valor é retornado como string nas consultas
-   */
-  dpLongitude: string;
+  dpLongitude: number;
   @Column({ name: DisposalPointEntityPropertiesDbNamesEnum.NEIGHBORHOOD })
   dpNeighborhood: string;
 }

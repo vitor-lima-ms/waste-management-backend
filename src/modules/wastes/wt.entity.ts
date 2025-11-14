@@ -41,8 +41,9 @@ export class WasteEntity extends AbstractEntity {
   })
   wtId: string;
   @Column({
-    name: WasteEntityPropertiesDbNamesEnum.TYPE,
     enum: WastesTypesEnum,
+    name: WasteEntityPropertiesDbNamesEnum.TYPE,
+    type: "enum",
   })
   wtType: WastesTypesEnum;
   @Column({ name: WasteEntityPropertiesDbNamesEnum.USER_NAME })
